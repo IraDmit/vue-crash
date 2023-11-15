@@ -2908,6 +2908,8 @@
       <div class="scale"><span id="min">00</span>:<span id="sec">00</span></div>
       <div class="descr">Flight time</div>
     </div>
+
+    <!-- //вывод последних 5ти коэффициентов -->
     <ul class="past-scale">
       <li
         class="scale-game"
@@ -2917,12 +2919,8 @@
       >
         x {{ item.coff.toFixed(2) }}
       </li>
-      <!-- <li class="scale-game green">x 5.52</li>
-      <li class="scale-game gray">x 1.05</li>
-      <li class="scale-game gold">x 22.32</li>
-      <li class="scale-game red">x 0.00</li>
-      <li class="scale-game blue">x 2.20</li> -->
     </ul>
+    <!-- {{ test }} -->
   </section>
 </template>
 
@@ -2952,12 +2950,13 @@ let counter = 10000,
   countdown,
   sec,
   min,
-  second = 5
+  second = 10
 
 const tick = 1000
 
 const coffList = ref(null)
 
+//запрос с коэффициентами
 const fetchCoef = async () => {
   await fetch('https://banter1.win/api/crash/init/test', { method: 'POST' })
     .then((res) => res.json())
@@ -3014,7 +3013,9 @@ const gameStart = () => {
       gameScale()
       gameScroll()
     }
+
   }, tick)
+
 }
 const gameTimer = (minut, secon) => {
   const sec = document.querySelector('#sec')
@@ -3165,6 +3166,7 @@ const gameReload = () => {
   display: block;
   height: auto;
 }
+
 #crashChartPlanetMoon {
   width: 16.2%;
   bottom: 3.96%;

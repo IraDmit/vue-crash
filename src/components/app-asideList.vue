@@ -145,8 +145,9 @@ aside {
   display: flex;
   flex-direction: column;
   gap: 54px;
+  width: 100%;
   .top {
-    width: 293px;
+    width: 100%;
     height: 42px;
     display: flex;
     justify-content: space-between;
@@ -194,6 +195,8 @@ aside {
   gap: 20px;
   align-items: center;
   padding: 10px 26px 10px 10px;
+  width: 100%;
+  justify-content: space-between;
 }
 .rate .info-block {
   display: flex;
